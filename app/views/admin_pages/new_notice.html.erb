@@ -1,0 +1,17 @@
+        <!-- start head bottom -->
+      <div class="bottom">
+        <div class="left">
+          <h1>공지사항 등록하기</h1>
+        </div>
+        <div class="right">
+        </div>
+      </div>
+
+
+<%= render 'notices/form', notice: @notices %>
+
+<%= link_to '뒤로가기', smovesmoveadmin_show_notice_path, class: 'btn btn-primary' %>
+
+  <% content_for 'javascript_content' do%>
+<%= javascript_include_tag params[:controller] %>
+<%end%>

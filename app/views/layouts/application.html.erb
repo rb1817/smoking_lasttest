@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>흡연구역 알리미</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    params[:controller], media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+      <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900" rel="stylesheet">
+      <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  </head>
+
+  <body >
+        <%= render :partial => 'shared/flash', :flash => flash %>
+        
+    <section id="admin">
+    <div class="sidebar">
+      <% if @admin_pages %>
+        <%= render 'shared/admin_topbar' %>
+        <%= render 'shared/admin_sidebar' %>
+        <div class="content">
+          <div class="head">
+            <%= render 'shared/admin_head' %>
+            <%= yield %>
+          </div>
+        </div>
+        
+      <% elsif @user_pages %>
+        <%= render 'shared/topbar' %>
+        <%= render 'shared/sidebar' %>
+        </div>
+        <div class="content">
+          <div class="head">
+            <%= render 'shared/head' %>
+            <%= yield %>
+          </div>
+        </div>
+        
+      <% else %>      
+    </div>
+    <div class="content">
+      <div class="head">
+        <%= yield %>
+      </div>
+    </div>
+    <% end %>
+    
+    </section>
+    <%= yield 'javascript_content'%>
+
+  </body>
+</html>

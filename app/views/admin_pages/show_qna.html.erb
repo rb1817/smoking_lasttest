@@ -1,0 +1,64 @@
+    <!-- start head bottom -->
+    <div class="bottom">
+      <div class="left">
+        <h1>관리자 페이지</h1>
+      </div>
+      <div class="right">
+        <!--<h1>dashboard /</h1>-->
+        <!--<a href="#">page name</a>-->
+      </div>
+    </div>
+    <br>
+<div class="col-md-12">
+	<div class="widget p-lg">
+		<h4 class="m-b-lg">문의사항 페이지</h4>
+		<p class="m-b-lg docs">
+			유저들이 등록한 문의사항 내용을 관리해주세요.
+		</p>
+
+		<table class="table table-bordered">
+			<tr><th>번호</th><th>제목</th><th>내용</th><th>유저명</th><th>이메일</th><th>등록시간</th><th>답변여부</th></tr>
+    <% @qnas.each do |qna| %>
+			<tr><td><%= qna.id %></td><td><%=qna.title %></td><td><%=qna.content %></td><td><%=qna.user_name %></td><td><%=qna.answer_email %></td><td><%= qna.created_at.strftime("%Y년 %m월 %d일 %H시 %M분") %></td><td> 답변여부</td></tr>
+    <% end %>
+		</table>
+	</div><!-- .widget -->
+</div><!-- END column -->        
+    
+
+<!--<thead>-->
+<!--    <tr>-->
+<!--      <th class="col">제목</th>-->
+<!--      <th class="col">내용</th>-->
+<!--      <th class="col">유저명</th>-->
+<!--      <th class="col">이메일</th>-->
+<!--      <th class="col">등록시간</th>      -->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--      <@% @qnas.each do |qna| %>-->
+<!--        <tr>-->
+<!--          <td><@%= qna.title %></td>-->
+<!--          <td><@%= qna.content %></td>-->
+<!--          <td><@%= qna.user_name %></td>-->
+<!--          <td><@%= qna.answer_email %></td>-->
+<!--          <td><@%= qna.created_at %></td>-->
+          <!--<td><%#= link_to 'Show', notice %></td>-->
+          <!--<td><%#= link_to 'Edit', edit_notice_path(notice) %></td>-->
+          <!--<td><%#= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--        </tr>-->
+<!--      <@% end %>-->
+      
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<br>-->
+
+
+
+<% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>

@@ -1,0 +1,79 @@
+
+
+<div class = "card-body">
+<div class = "card-head">
+        		<div class="row">
+          			<div class="col-lg-12">
+        				  <form action="/qnas" class="form-horizontal" method="post">
+        				  	<div class = "card-body">
+          					<div class="row">
+          						<div class="col-md-12">
+          							<div class="m-b-lg"><h5>
+          								문의하실 내용을 다음 아래 항목에 적어주신 후 <code>보내기</code> 버튼을 눌러주세요.
+          							</h5></div>
+          						</div>
+          					</div>
+          					</div>
+          					<br>
+        					<div class="form-group has-success has-feedback">
+        					  <input type="hidden" value="<%= form_authenticity_token() %>"  name="authenticity_token"/>
+        						<label class="control-label col-sm-3 text-left" for="inputSuccess2">이용자 ID</label>
+        						<div class="col-sm-12">
+        							<input  type="text" class="form-control" name="qna[user_name]" id="qna_user_name" aria-describedby="inputSuccess2Status">
+        						</div>
+        						<br>
+        						<label class="control-label col-sm-3 text-left" for="inputSuccess2"> 제목 </label>
+    								<div class="col-sm-12">
+        					    <input class="form-control" type="text" name="qna[title]" id="qna_title"  aria-describedby="inputSuccess2Status">
+										</div>
+        						<br>
+        						<label class="control-label col-sm-3 text-left" for="inputSuccess2"> 문의 내용 </label>
+    								<div class="col-sm-12">
+        					    <textarea class="form-control" name="qna[content]" id="qna_content" aria-describedby="inputSuccess2Status"> </textarea>
+										</div>
+										<br>
+        						<label class="control-label col-sm-3 text-left" for="inputSuccess2"> 답장 받으실 이메일 주소 </label>
+    								<div class="col-sm-12">
+        					    <input class="form-control" type="text" name="qna[answer_email]" id="qna_answer_email" aria-describedby="inputSuccess2Status">
+										</div>
+										<br>
+					<div class = "card-body">					
+					<div class="actions">
+                      <input type="submit" name="commit" value="보내기" data-disable-with="보내기" class = "btn btn-primary"><br>
+                    </div>
+                    </div>
+                    </form>
+        					</div>
+      					</div>
+    					</div>
+    					</div>
+
+</div>
+
+        					
+        					<!--<div class="form-group has-warning has-feedback">-->
+        					<!--	<label class="control-label col-sm-3 text-left" for="inputWarning2">Input with warning</label>-->
+        					<!--	<div class="col-sm-12">-->
+        					<!--		<input  type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">-->
+        					<!--		<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>-->
+        					<!--		<span id="inputWarning2Status" class="sr-only">(warning)</span>-->
+        					<!--	</div>-->
+        					<!--</div>-->
+
+        					<!--<div class="form-group has-error has-feedback">-->
+        					<!--	<label class="control-label col-sm-3 text-left" for="inputError2">Input with error</label>-->
+        					<!--	<div class="col-sm-12">-->
+        					<!--		<input  type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">-->
+        					<!--		<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>-->
+        					<!--		<span id="inputError2Status" class="sr-only">(error)</span>-->
+        					<!--	</div>-->
+        					<!--</div>-->
+        					<!--<div class="form-group">-->
+        					<!--	<label for="control-demo-5" class="col-sm-3">Textarea</label>-->
+        					<!--	<div class="col-sm-12">-->
+        					<!--		<textarea name="control-demo-5" id="control-demo-5" class="form-control" cols="30" rows="10"></textarea>-->
+        					<!--	</div>-->
+        					<!--</div><!-- .form-group --> 
+
+
+

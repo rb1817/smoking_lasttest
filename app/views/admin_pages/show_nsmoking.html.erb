@@ -1,0 +1,65 @@
+    <!-- start head bottom -->
+    <div class="bottom">
+      <div class="left">
+        <h1>관리자 페이지</h1>
+      </div>
+      <div class="right">
+        <!--<h1>dashboard /</h1>-->
+        <!--<a href="#">page name</a>-->
+      </div>
+    </div>
+    <br>
+<div class="col-md-12">
+	<div class="widget p-lg">
+		<h4 class="m-b-lg">금연구역 페이지</h4>
+		<p class="m-b-lg docs">
+			공공데이터 포털에서 찾아온 금연구역 자료를 관리해주세요.
+		</p>
+
+		<table class="table table-bordered">
+			<tr><th>번호</th><th>장소명</th><th>장소분류</th><th>위도</th><th>경도</th><th>주소</th><th>등록시간</th></tr>
+    <% @nsmoke_places.each do |nsmoke_place| %>
+			<tr><td><%= nsmoke_place.id %></td><td><%=nsmoke_place.area_name %></td><td><%=nsmoke_place.area_catagory %></td><td><%=nsmoke_place.latitude %></td><td><%=nsmoke_place.longitude %></td><td><%=nsmoke_place.address %></td><td><%= nsmoke_place.created_at.strftime("%Y년 %m월 %d일 %H시 %M분") %></td></tr>
+    <% end %>
+		</table>
+	</div><!-- .widget -->
+</div><!-- END column -->        
+    
+    
+    
+    
+    
+<!--<table>-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th class="col">장소명</th>-->
+<!--      <th class="col">장소분류</th>-->
+<!--      <th class="col">위도</th>-->
+<!--      <th class="col">경도</th>-->
+<!--      <th class="col">주소</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--      <@% @nsmoke_places.each do |nsmoke_place| %>-->
+<!--        <tr>-->
+<!--          <td><@%= nsmoke_place.area_name %></td>-->
+<!--          <td><@%= nsmoke_place.area_catagory %></td>-->
+<!--          <td><@%= nsmoke_place.latitude %></td>-->
+<!--          <td><@%= nsmoke_place.longitude %></td>-->
+<!--          <td><@%= nsmoke_place.address %></td>-->
+<!--          <td><@%= link_to 'Edit', edit_notice_path(notice) %></td>-->
+<!--          <td><@%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--        </tr>-->
+<!--      <@% end %>-->
+      
+<!--  </tbody>-->
+<!--</table>-->
+
+
+
+<% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>

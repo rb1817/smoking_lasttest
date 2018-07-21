@@ -1,0 +1,23 @@
+        <!-- start head bottom -->
+      <div class="bottom">
+        <div class="left">
+          <h1>문의사항</h1>
+        </div>
+        <div class="right">
+          <!--<h1>dashboard /</h1>-->
+          <!--<a href="#">page name</a>-->
+        </div>
+      </div>
+      <!-- end head bottom -->
+      
+<%= render 'form', qna: @qna %>
+
+<!--<#%= link_to '뒤로 가기', qnas_path %>-->
+
+
+    
+    <% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>

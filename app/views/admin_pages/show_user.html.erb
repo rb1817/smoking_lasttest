@@ -1,0 +1,65 @@
+    <!-- start head bottom -->
+    <div class="bottom">
+      <div class="left">
+        <h1>관리자 페이지</h1>
+      </div>
+      <div class="right">
+        <!--<h1>dashboard /</h1>-->
+        <!--<a href="#">page name</a>-->
+      </div>
+    </div>
+    <br>
+<div class="col-md-12">
+	<div class="widget p-lg">
+		<h4 class="m-b-lg">유저관리 페이지</h4>
+		<p class="m-b-lg docs">
+			회원가입한 회원들을 관리해주세요.
+		</p>
+
+		<table class="table table-bordered">
+			<tr><th>번호</th><th>이메일</th><th>게시글 수</th><th>접속날짜</th><th>로그인 횟수</th><th>상태(탈퇴처리)</th></tr>
+    <% @users.each do |user| %>
+			<tr><td><%= user.id %></td><td><%=user.email %></td><td></td><td><%=user.last_sign_in_at %></td><td><%=user.sign_in_count%></td><td> 상태 </td></tr>
+    <% end %>
+		</table>
+	</div><!-- .widget -->
+</div><!-- END column -->        
+    
+<!--<table>-->
+<!--  <thead >-->
+<!--    <tr>-->
+<!--      <th class="col">유저명</th>-->
+<!--      <th class="col">이메일</th>      -->
+<!--      <th class="col">게시글 수</th>-->
+<!--      <th class="col">접속날짜</th>-->
+<!--      <th class="col">상태(탈퇴처리)</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--      <@% @users.each do |user| %>-->
+<!--        <tr>-->
+<!--          <td><@%= user.user_name %></td>-->
+<!--          <td><@%= user.email %></td>-->
+<!--          <td><%#= user.      %></td>
+<!--          <td><@%= user.last_sign_in_at %></td>-->
+<!--          <td><@%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          <!--<td><%#= link_to 'Show', notice %></td>-->
+          <!--<td><%#= link_to 'Edit', edit_notice_path(notice) %></td>-->
+          <!--<td></td>-->
+<!--        </tr>-->
+<!--      <@% end %>-->
+      
+<!--  </tbody>-->
+<!--</table>-->
+
+<br>    
+    
+    
+    
+    
+    <% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>

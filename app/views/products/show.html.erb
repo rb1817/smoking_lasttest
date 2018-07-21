@@ -1,0 +1,120 @@
+<% if @p == 1 %>
+        <!-- start head bottom -->
+      <div class="bottom">
+        <div class="left">
+          <h1>등록된 흡연구역</h1>
+        </div>
+        <div class="right">
+          <!--<h1>dashboard /</h1>-->
+          <!--<a href="#">page name</a>-->
+        </div>
+      </div>
+      <!-- end head bottom -->
+
+  <div id="real">
+      <!-- start content here -->
+      <div class="wrap">
+      	<section class="app-content">
+      		<div class="m-b-lg nav-tabs-horizontal">
+            <!-- start cards -->
+      			<div class="tab-content p-md cards">
+              <div class="card card-top">
+            		<a href="javascript:void(0)">
+            			<img class="img-responsive" width="100%" src="<%= @product.image_address.thumb_sbs.url %>" alt="사진입니다.">
+            		</a> <br>
+        		</div>
+              <div class="card card-top">
+        					<h3 class="m-b-lg"><%= @product.area_type %> </h3>
+        					<h3 class="m-b-lg">장소명 : <%= @product.area_name %> </h3>
+        					<h3 class="m-b-lg">장소 설명 : <%= @product.description %></h3>
+        		</div>
+        		<%= button_tag(link_to("뒤로가기", :back), class: "btn btn-info")%>
+          		
+          		  <% if @user_likes_product.nil? %>
+                    <button class="btn btn-danger like">
+                        신고하기(<span class="like-count"><%= @product.likes.count %></span>)
+                    </button>
+                <% else %>
+                    <button class="btn btn-warning like">
+                        신고취소(<span class="like-count"><%= @product.likes.count %></span>)
+                    </button>
+                <% end %>
+      			</div><!-- .tab-content -->
+      		</div><!-- .nav-tabs-horizontal -->
+      	</section><!-- .app-content -->
+       </div>     
+
+<% end %>
+
+<% if @p == 2 %>
+        <!-- start head bottom -->
+      <div class="bottom">
+        <div class="left">
+          <h1>등록된 단속구역</h1>
+        </div>
+        <div class="right">
+          <!--<h1>dashboard /</h1>-->
+          <!--<a href="#">page name</a>-->
+        </div>
+      </div>
+      <!-- end head bottom -->
+
+  <div id="real">
+      <!-- start content here -->
+      <div class="wrap">
+      	<section class="app-content">
+      		<div class="m-b-lg nav-tabs-horizontal">
+            <!-- start cards -->
+      			<div class="tab-content p-md cards">
+                  <div class="card card-top">
+            		<a href="javascript:void(0)">
+            			<img class="img-responsive" width="100%" src="<%= @product.image_address.thumb_sbs.url %>" alt="사진입니다.">
+            		</a> <br>
+        		</div>
+              <div class="card card-top">
+        					<h3 class="m-b-lg"><%= @product.area_type %> </h3>
+        					<h3 class="m-b-lg">장소명 : <%= @product.area_name %> </h3>
+        					<h3 class="m-b-lg">장소 설명 : <%= @product.description %></h3>
+          		</div>
+        		</div>
+
+                <%= button_tag(link_to("뒤로가기", :back), class: "btn btn-info")%>
+          		
+          		  <% if @user_likes_product.nil? %>
+                    <button class="btn btn-danger like">
+                        신고하기(<span class="like-count"><%= @product.likes.count %></span>)
+                    </button>
+                <% else %>
+                    <button class="btn btn-warning like">
+                        신고취소(<span class="like-count"><%= @product.likes.count %></span>)
+                    </button>
+                <% end %>
+      			</div><!-- .tab-content -->
+      		</div><!-- .nav-tabs-horizontal -->
+      	</section><!-- .app-content -->
+       </div>     
+          		
+
+  
+  
+  
+  
+<% end %>
+
+<script>
+    $(document).ready(function(){
+        $('.like').on('click',function(){
+            console.log("like!!!");
+            $.ajax({
+                url:'/likes/<%=@product.id%>/product'
+            });
+        });
+    });
+</script>
+      
+
+
+
+  <% content_for 'javascript_content' do%>
+  <%= javascript_include_tag params[:controller] %>
+  <%end%>

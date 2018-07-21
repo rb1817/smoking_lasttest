@@ -1,0 +1,52 @@
+    <!-- start head bottom -->
+    <div class="bottom">
+      <div class="left">
+        <h1>관리자 페이지</h1>
+      </div>
+      <div class="right">
+        <!--<h1>dashboard /</h1>-->
+        <!--<a href="#">page name</a>-->
+      </div>
+    </div>
+    <br>
+<div class="col-md-12">
+	<div class="widget p-lg">
+		<h4 class="m-b-lg">흡연구역 페이지</h4>
+		<p class="m-b-lg docs">
+			유저들이 등록한 흡연구역을 관리해주세요.
+		</p>
+
+		<table class="table table-bordered">
+			<tr><th>번호</th><th>장소명</th><th>장소설명</th><th>사진</th><th>등록일자</th><th>신고건수</th><th>관리</th></tr>
+    <% @smoke_places.each do |smoke_place| %>
+    <% if smoke_place.area_type.eql?("흡연구역") %>
+			<tr><td><%= smoke_place.id %></td><td><%=smoke_place.area_name %></td><td><%=smoke_place.description %></td><td><%=smoke_place.image_address %></td><td><%= smoke_place.created_at.strftime("%Y년 %m월 %d일 %H시 %M분") %></td>
+				<td><%= smoke_place.likes.count %>
+		  </td>
+		<td>
+		<%= link_to '삭제', product_path(smoke_place.id), method: "DELETE" %> |
+    <%= link_to '수정', edit_product_path(smoke_place.id) %> 
+    </td></tr>
+    <% end %>
+        <% end %>
+		</table>
+	</div><!-- .widget -->
+</div><!-- END column -->    
+    
+    
+    <!--<#%= link_to '수정', edit_notice_path(notice), class: "btn btn-info"%> |
+    <@%= link_to '삭제', notice, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"%></td>-->
+    
+    <% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>
+
+
+
+<% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>

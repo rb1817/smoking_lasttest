@@ -1,0 +1,18 @@
+<%= form_for(notice) do |f| %>
+<div class = "card-body">
+<div class="py-4 text-center">
+  <div class = "from-group mx-auto" style="width:200px">
+    공지사항 제목 : <br/>
+    <%=f.text_field :title, id: 'lat' ,class: "form-control"%>
+  </div>
+  <div class = "from-group mx-auto" style="width:200px">
+    내용 <br/>
+    <%=f.text_area :content, id: 'lng' ,class: "form-control"%><br/>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit "등록하기",class: 'btn btn-primary'%>
+  </div>
+</div>
+</div>
+<% end %>

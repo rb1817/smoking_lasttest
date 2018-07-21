@@ -1,0 +1,63 @@
+
+        <!-- start head bottom -->
+      <div class="bottom">
+        <div class="left">
+          <h1>공지사항</h1>
+        </div>
+        <div class="right">
+        </div>
+      </div>
+      <!-- end head bottom -->
+
+<div class= "">
+  <br>
+<div class="col-md-12">
+	<div class="widget p-lg">
+		<h4 class="m-b-lg"></h4>
+		<p class="m-b-lg docs">
+		</p>
+
+		<table class="table table-bordered">
+			<tr><th>번호</th><th>제목</th><th>등록 시간</th></tr>
+    <% @notices.each do |notice| %>
+			<tr><td><%= notice.id %></td><td><%= link_to notice.title, '/' %></td><td><%= notice.created_at.strftime("%Y년 %m월 %d일 %H시 %M분") %></td></tr>
+    <% end %>
+		</table>
+	</div><!-- .widget -->
+</div><!-- END column -->    
+</div>
+
+<% content_for 'javascript_content' do %>
+  <%= javascript_include_tag params[:controller] %>
+  <script>
+  </script>
+<% end %>
+
+
+
+<!--제목의 글을 눌렀을 때 해당 글을 볼 수 있도록 들어감.-->
+
+<!--<table>-->
+<!--  <thead >-->
+<!--    <tr>-->
+<!--      <th class="col-5">제목</th>-->
+<!--      <th class="col-1">조회수</th>-->
+<!--      <th class="col-3">날짜</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+
+<!--  <tbody>-->
+<!--    <@% @notices.each do |notice| %>-->
+<!--      <tr>-->
+<!--        <td><@%= notice.title %></td>-->
+<!--        <td><@%= notice.count %></td>-->
+<!--        <td><@%= notice.created_at %></td>-->
+        <!--<td><%#= link_to 'Show', notice %></td>-->
+        <!--<td><%#= link_to 'Edit', edit_notice_path(notice) %></td>-->
+        <!--<td><%#= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+<!--    <@% end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<br>
